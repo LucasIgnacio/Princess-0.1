@@ -1,90 +1,93 @@
 :root{
-  /* ===== TEMA ESCURO (padrão) ===== */
-  --bg-0:#100c0b;
-  --bg-1:#17110f;
-  --bg-2:#1c1512;
-  --bg-3:#150f0d;
-  --bg-4:#122320;
-  --bg-5:#1a1310;
-  --bg-6:#0e0a09;
+  /* ===== TEMA ESCURO (Escala de cinza puros) ===== */
+  --bg-0:#000000;
+  --bg-1:#111111;
+  --bg-2:#1a1a1a;
+  --bg-3:#141414;
+  --bg-4:#222222;
+  --bg-5:#1c1c1c;
+  --bg-6:#0a0a0a;
 
-  --surface:#241a17;
-  --surface-2:#2b1f1b;
-  --border-soft:rgba(245,238,228,.10);
-  --border-soft-2:rgba(245,238,228,.16);
+  --surface:#222222;
+  --surface-2:#2a2a2a;
+  --border-soft:rgba(255,255,255,.10);
+  --border-soft-2:rgba(255,255,255,.16);
 
-  --text:#f5eee4;
-  --text-dim:#cfc3b7;
-  --text-mute:#a4988c;
+  --text:#ffffff;
+  --text-dim:#cccccc;
+  --text-mute:#999999;
 
-  --gold:#d4ad55;
-  --rose:#e19bb0;
-  --teal:#3f9184;
-  --wine:#a24a5e;
+  /* Cores de destaque agora em tons de cinza/branco */
+  --gold:#ffffff;
+  --rose:#e0e0e0;
+  --teal:#b0b0b0;
+  --wine:#888888;
 
-  --header-bg:rgba(16,12,11,.86);
-  --hero-overlay-1:rgba(16,12,11,.80);
-  --hero-overlay-2:rgba(16,12,11,.96);
-  --sust-overlay-1:rgba(18,35,32,.90);
-  --sust-overlay-2:rgba(18,35,32,.96);
-  --contact-overlay-1:rgba(14,10,9,.88);
-  --contact-overlay-2:rgba(14,10,9,.97);
+  --header-bg:rgba(0,0,0,.86);
+  --hero-overlay-1:rgba(0,0,0,.80);
+  --hero-overlay-2:rgba(0,0,0,.96);
+  --sust-overlay-1:rgba(10,10,10,.90);
+  --sust-overlay-2:rgba(10,10,10,.96);
+  --contact-overlay-1:rgba(0,0,0,.88);
+  --contact-overlay-2:rgba(0,0,0,.97);
 
-  --btn-primary-text:#241318;
-  --btn-primary-hover:#eab0c1;
-  --form-glass:rgba(36,26,23,.55);
+  --btn-primary-text:#000000;
+  --btn-primary-hover:#cccccc;
+  --form-glass:rgba(30,30,30,.55);
   --input-bg:rgba(255,255,255,.05);
   --pillar-bg:rgba(0,0,0,.25);
-  --pillar-span:#8fc4b6;
-  --pillar-text:#cfe3dc;
+  --pillar-span:#b0b0b0;
+  --pillar-text:#e0e0e0;
 
-  --font-display:-apple-system, "SF Pro Display", "SF Pro", "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
-  --font-body:-apple-system, "SF Pro Text", "SF Pro", "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
-  --font-mono:ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+  /* Fontes atualizadas para Montserrat */
+  --font-display: 'Montserrat', -apple-system, sans-serif;
+  --font-body: 'Montserrat', -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
 
   --max-w:1200px;
   --radius:4px;
 }
 
-/* ===== TEMA CLARO (branco) ===== */
+/* ===== TEMA CLARO (branco/cinza) ===== */
 html[data-theme="light"]{
   --bg-0:#ffffff;
-  --bg-1:#f7f5f2;
-  --bg-2:#f2efe9;
-  --bg-3:#faf9f7;
-  --bg-4:#eef6f3;
-  --bg-5:#f5f3ef;
-  --bg-6:#efece6;
+  --bg-1:#f2f2f2;
+  --bg-2:#eeeeee;
+  --bg-3:#f9f9f9;
+  --bg-4:#e8e8e8;
+  --bg-5:#f0f0f0;
+  --bg-6:#e0e0e0;
 
   --surface:#ffffff;
-  --surface-2:#f4f1ec;
-  --border-soft:rgba(20,16,14,.10);
-  --border-soft-2:rgba(20,16,14,.18);
+  --surface-2:#f4f4f4;
+  --border-soft:rgba(0,0,0,.10);
+  --border-soft-2:rgba(0,0,0,.18);
 
-  --text:#1c1512;
-  --text-dim:#4a413b;
-  --text-mute:#8a8079;
+  --text:#000000;
+  --text-dim:#333333;
+  --text-mute:#666666;
 
-  --gold:#b8863b;
-  --rose:#c9607c;
-  --teal:#2f7d70;
-  --wine:#8a3346;
+  /* Destaques em preto e cinza escuro */
+  --gold:#000000;
+  --rose:#333333;
+  --teal:#555555;
+  --wine:#777777;
 
   --header-bg:rgba(255,255,255,.86);
   --hero-overlay-1:rgba(255,255,255,.82);
   --hero-overlay-2:rgba(255,255,255,.96);
-  --sust-overlay-1:rgba(238,246,243,.90);
-  --sust-overlay-2:rgba(238,246,243,.97);
-  --contact-overlay-1:rgba(239,236,230,.88);
-  --contact-overlay-2:rgba(239,236,230,.97);
+  --sust-overlay-1:rgba(240,240,240,.90);
+  --sust-overlay-2:rgba(240,240,240,.97);
+  --contact-overlay-1:rgba(245,245,245,.88);
+  --contact-overlay-2:rgba(245,245,245,.97);
 
   --btn-primary-text:#ffffff;
-  --btn-primary-hover:#b04863;
+  --btn-primary-hover:#444444;
   --form-glass:rgba(255,255,255,.65);
   --input-bg:rgba(255,255,255,.8);
   --pillar-bg:rgba(255,255,255,.55);
-  --pillar-span:#1b6f64;
-  --pillar-text:#2f5b53;
+  --pillar-span:#555555;
+  --pillar-text:#333333;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
