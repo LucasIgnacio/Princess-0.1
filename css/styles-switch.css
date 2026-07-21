@@ -461,6 +461,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 @media (max-width:720px){
   .nav-left .nav-inline, .nav-right .nav-inline{display:none;}
+  .nav-right > .nav-cta{display:none;}
   .nav-links{
     display:flex;
     position:fixed;top:78px;left:0;right:0;background:var(--bg-0);
