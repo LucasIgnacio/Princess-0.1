@@ -398,7 +398,7 @@ section.block{padding:100px 32px;transition:background-color .4s ease;}
   color:var(--text);position:relative;
   background:
     linear-gradient(180deg, var(--contact-overlay-1), var(--contact-overlay-2)),
-    url('../assets/images/contato.jpg') center/cover no-repeat;
+    url('../assets/images/contato.jpeg') center/cover no-repeat;
 }
 .contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
 .contato-info p{color:var(--text-dim);margin-bottom:10px;}
