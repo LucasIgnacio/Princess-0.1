@@ -494,7 +494,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 @media (max-width:920px){
   .sobre-grid,.contato-grid{grid-template-columns:1fr;}
   .sobre-grid{gap:36px;}
-  .sobre-media{order:-1;aspect-ratio:16/9;}
+  .sobre-media{order:-1;aspect-ratio:auto;}
+  .sobre-media img{height:auto;object-fit:contain;}
   .card-grid{grid-template-columns:1fr;}
   .badge-track .badge{flex:0 0 50%;max-width:50%;}
   .sust-grid{grid-template-columns:1fr;}
