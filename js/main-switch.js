@@ -52,6 +52,27 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
 
+// ---- Vídeo de fundo da hero: respeita reduced-motion e pausa em aba oculta ----
+(function initHeroVideo(){
+  const heroVideo = document.querySelector('.hero-video');
+  if (!heroVideo) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion){
+    heroVideo.pause();
+    heroVideo.removeAttribute('autoplay');
+    return;
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden){
+      heroVideo.pause();
+    } else {
+      heroVideo.play().catch(() => {});
+    }
+  });
+})();
+
 // ---- Carrossel responsivo (Tecnologias e selos) ----
 (function initBadgeCarousel(){
   const carousel = document.getElementById('badgeCarousel');
