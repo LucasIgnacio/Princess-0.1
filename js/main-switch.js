@@ -51,3 +51,102 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 revealEls.forEach(el => io.observe(el));
+
+// ---- Carrossel responsivo (Tecnologias e selos) ----
+(function initBadgeCarousel(){
+  const carousel = document.getElementById('badgeCarousel');
+  const track = document.getElementById('badgeTrack');
+  const prevBtn = document.getElementById('badgePrev');
+  const nextBtn = document.getElementById('badgeNext');
+  const dotsWrap = document.getElementById('badgeDots');
+  if (!carousel || !track || !prevBtn || !nextBtn || !dotsWrap) return;
+
+  const slides = Array.from(track.children);
+  let itemsPerView = 3;
+  let currentPage = 0;
+
+  function getItemsPerView(){
+    const w = window.innerWidth;
+    if (w <= 720) return 1;
+    if (w <= 920) return 2;
+    return 3;
+  }
+
+  function pageCount(){
+    return Math.max(1, Math.ceil(slides.length / itemsPerView));
+  }
+
+  function buildDots(){
+    dotsWrap.innerHTML = '';
+    const total = pageCount();
+    for (let i = 0; i < total; i++){
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Ir para o grupo ${i + 1}`);
+      dot.addEventListener('click', () => goToPage(i));
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  function updateUI(){
+    const total = pageCount();
+    Array.from(dotsWrap.children).forEach((dot, i) => {
+      dot.classList.toggle('is-active', i === currentPage);
+    });
+    prevBtn.disabled = currentPage === 0;
+    nextBtn.disabled = currentPage === total - 1;
+    const offset = currentPage * itemsPerView * (100 / itemsPerView);
+    track.style.transform = `translateX(-${offset}%)`;
+  }
+
+  function goToPage(page){
+    const total = pageCount();
+    currentPage = Math.min(Math.max(page, 0), total - 1);
+    updateUI();
+  }
+
+  function handleResize(){
+    const newItemsPerView = getItemsPerView();
+    if (newItemsPerView !== itemsPerView){
+      itemsPerView = newItemsPerView;
+      buildDots();
+      currentPage = Math.min(currentPage, pageCount() - 1);
+      updateUI();
+    }
+  }
+
+  prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+  nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+
+  carousel.setAttribute('tabindex', '0');
+  carousel.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') goToPage(currentPage - 1);
+    if (e.key === 'ArrowRight') goToPage(currentPage + 1);
+  });
+
+  // Swipe (touch) support
+  let touchStartX = 0;
+  let touchDeltaX = 0;
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchDeltaX = 0;
+  }, { passive: true });
+  track.addEventListener('touchmove', (e) => {
+    touchDeltaX = e.touches[0].clientX - touchStartX;
+  }, { passive: true });
+  track.addEventListener('touchend', () => {
+    if (Math.abs(touchDeltaX) > 40){
+      goToPage(touchDeltaX < 0 ? currentPage + 1 : currentPage - 1);
+    }
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(handleResize, 150);
+  });
+
+  itemsPerView = getItemsPerView();
+  buildDots();
+  updateUI();
+})();
