@@ -187,6 +187,21 @@ html[data-theme="light"] .logo-for-light{display:block;}
 .nav-cta::after{display:none;}
 .nav-cta:hover{background:var(--gold);color:var(--bg-0) !important;}
 .nav-links{display:none;}
+.language-control{position:relative;display:flex;align-items:center;flex:none;}
+.language-control::after{
+  content:"⌄";position:absolute;right:9px;top:50%;transform:translateY(-55%);
+  color:var(--text-mute);font-size:.78rem;pointer-events:none;
+}
+.language-select{
+  appearance:none;-webkit-appearance:none;
+  height:38px;min-width:78px;padding:0 26px 0 10px;
+  border:1px solid var(--border-soft-2);border-radius:var(--radius);
+  background:transparent;color:var(--text);cursor:pointer;
+  font-family:var(--font-body);font-size:.72rem;font-weight:600;letter-spacing:.02em;
+  transition:border-color .25s ease, color .25s ease, background-color .25s ease;
+}
+.language-select:hover{border-color:var(--gold);color:var(--gold);}
+.language-select option{background:var(--bg-0);color:var(--text);}
 .burger{
   display:none;flex-direction:column;gap:5px;background:none;border:none;
   cursor:pointer;padding:6px;
@@ -403,7 +418,7 @@ section.block{padding:100px 32px;transition:background-color .4s ease;}
   color:var(--text);position:relative;
   background:
     linear-gradient(180deg, var(--sust-overlay-1), var(--sust-overlay-2)),
-    url('../assets/images/sustentabilidade.jpeg') center/cover no-repeat;
+    url('../assets/images/sustentabilidade.jpg') center/cover no-repeat;
 }
 .sust-top{display:flex;align-items:center;gap:18px;margin-bottom:44px;}
 .sust-top img{height:56px;width:auto;background:#ffffff;padding:8px;border-radius:var(--radius);}
@@ -484,18 +499,25 @@ footer .foot-name{
   display:block;margin-bottom:6px;
 }
 
-a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible{
   outline:2px solid var(--gold);outline-offset:2px;
 }
 
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease, transform .6s ease;}
 .reveal.is-visible{opacity:1;transform:translateY(0);}
 
+@media (max-width:1100px) and (min-width:721px){
+  .nav-left{gap:22px;}
+  .nav-right{gap:10px;}
+  .nav-inline{gap:16px;}
+  .nav-cta{padding:8px 12px;}
+  .language-select{min-width:70px;padding-left:8px;}
+}
+
 @media (max-width:920px){
   .sobre-grid,.contato-grid{grid-template-columns:1fr;}
   .sobre-grid{gap:36px;}
-  .sobre-media{order:-1;aspect-ratio:auto;}
-  .sobre-media img{height:auto;object-fit:contain;}
+  .sobre-media{order:-1;aspect-ratio:16/9;}
   .card-grid{grid-template-columns:1fr;}
   .badge-track .badge{flex:0 0 50%;max-width:50%;}
   .sust-grid{grid-template-columns:1fr;}
@@ -520,4 +542,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   .badge-track .badge{flex:0 0 100%;max-width:100%;}
   .hero-stats{grid-template-columns:1fr;gap:18px;}
   .logo-inline img{height:38px;}
+  .nav-right{gap:8px;}
+  .language-select{height:36px;min-width:66px;padding:0 22px 0 8px;font-size:.68rem;}
+  .language-control::after{right:7px;}
 }
+
