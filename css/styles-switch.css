@@ -418,7 +418,7 @@ section.block{padding:100px 32px;transition:background-color .4s ease;}
   color:var(--text);position:relative;
   background:
     linear-gradient(180deg, var(--sust-overlay-1), var(--sust-overlay-2)),
-    url('../assets/images/sustentabilidade.jpg') center/cover no-repeat;
+    url('../assets/images/sustentabilidade.jpeg') center/cover no-repeat;
 }
 .sust-top{display:flex;align-items:center;gap:18px;margin-bottom:44px;}
 .sust-top img{height:56px;width:auto;background:#ffffff;padding:8px;border-radius:var(--radius);}
