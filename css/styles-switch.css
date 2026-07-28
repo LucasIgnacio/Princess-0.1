@@ -528,6 +528,10 @@ a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible
   .hero-stats{grid-template-columns:repeat(3,auto);gap:26px;}
 }
 @media (max-width:720px){
+  /* Exibe a foto da seção Sobre inteira no celular, sem recorte */
+  .sobre-media{aspect-ratio:auto;}
+  .sobre-media img{width:100%;height:auto;object-fit:contain;}
+
   .nav-left .nav-inline, .nav-right .nav-inline{display:none;}
   .nav-right > .nav-cta{display:none;}
   .nav-links{
